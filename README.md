@@ -42,36 +42,30 @@ cd PortScanner
 # Compile (Modo Release para performance máxima)
 dotnet build -c Release
 
-## 💻 Como Usar
+💻 Como Usar
 A ferramenta funciona via CLI (Linha de Comando).
 
 Sintaxe Básica
-
 # Rodando direto do código (Linux requer sudo para Ping/ICMP)
 sudo dotnet run -- -t <ALVO> -p <PORTAS> -o <RELATORIO>
 
 # Rodando o binário compilado
 ./PortScanner -t 192.168.0.1 -p all
 
-# Rodando o binário compilado
-./PortScanner -t 192.168.0.1 -p all
 
+Argumentos
+Argumento	                      Descrição	                                                       Exemplo
+  -t	                Define o Alvo (IP ou Domínio).	                                     -t scanme.nmap.org
+  -p	         Define as portas. Aceita listas, intervalos e atalhos.               	-p 22,80,1000-2000 ou -p all
+  -o	     (Opcional) Salva o resultado em arquivo. Gera TXT e JSON.	                       -o scan_result.txt
+  -timeout	(Opcional) Tempo limite em ms por porta. Padrão: 1500.	                          -timeout 500
 
-## Argumentos
-Argumento	Descrição	Exemplo
--t	Define o Alvo (IP ou Domínio).	-t scanme.nmap.org
--p	Define as portas. Aceita listas, intervalos e atalhos.	-p 22,80,1000-2000 ou -p all
--o	(Opcional) Salva o resultado em arquivo. Gera TXT e JSON.	-o scan_result.txt
--timeout	(Opcional) Tempo limite em ms por porta. Padrão: 1500.	-timeout 500
-
-## 📸 Exemplo de Saída (Proof of Concept)
-
+📸 Exemplo de Saída (Proof of Concept)
 Executando contra o servidor de testes do Nmap:
 
-```bash
 sudo dotnet run -- -t scanme.nmap.org -p 22,80,9929 -o report.txt
 
-## Console Output
+Console Output
 
 [i] Alvo: scanme.nmap.org (45.33.32.156)
 [*] Detectando Sistema Operacional... Linux/Unix (TTL Inacessível, mas Online)
@@ -87,7 +81,8 @@ sudo dotnet run -- -t scanme.nmap.org -p 22,80,9929 -o report.txt
 [+] Relatório salvo com sucesso em: report.txt
 [+] Relatório JSON salvo em: report.json
 
-## JSON Output (Gerado Automaticamente)
+
+JSON Output (Gerado Automaticamente)
 
 {
   "target": "scanme.nmap.org",
@@ -100,7 +95,7 @@ sudo dotnet run -- -t scanme.nmap.org -p 22,80,9929 -o report.txt
   ]
 }
 
-## 🧠 Detalhes Técnicos (Under the Hood)
+🧠 Detalhes Técnicos (Under the Hood)
 
 1. Concorrência Segura (Throttling)
 Para evitar o esgotamento de file descriptors ou bloqueios de segurança do roteador, o PortScanner não dispara 65.000 threads de uma vez. Utilizamos um SemaphoreSlim para criar um controle de fluxo, permitindo apenas um número fixo de conexões simultâneas ativas (padrão: 200).
@@ -112,8 +107,9 @@ O timeout nativo do TcpClient é bloqueante e lento. Implementamos um padrão us
 A extração de versão utiliza a expressão regular @"([a-zA-Z0-9_\-]+)\/([\d\.]+[a-z]?)". Isso limpa banners poluídos e entrega apenas o vetor de ataque relevante (ex: identificar um OpenSSH 6.6 vulnerável para CVEs antigos).
 
 
-## Disclaimer
+⚠️ Disclaimer
 
 Esta ferramenta foi desenvolvida para fins educacionais e uso em ambientes autorizados (CTF, Pentest contratado, Bug Bounty). O autor não se responsabiliza pelo uso indevido desta ferramenta para escanear redes sem consentimento. Scanning não autorizado é crime.
 
-<p align="center"> Desenvolvido por <a href="https://www.google.com/search?q=https://github.com/joaovctn">João Santos</a> 💀 </p>
+
+<p align="center"> Desenvolvido por <a href="https://www.google.com/search?q=https://github.com/joaovctn">João Santos</a> 💀 </p>  
