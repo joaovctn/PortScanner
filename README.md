@@ -51,7 +51,7 @@ sudo dotnet run -- -t <ALVO> -p <PORTAS> -o <RELATORIO>
 
 # Rodando o binário compilado
 ./PortScanner -t 192.168.0.1 -p all
-
+```
 
 Argumentos
 Argumento	                      Descrição	                                                       Exemplo
@@ -113,3 +113,4 @@ Esta ferramenta foi desenvolvida para fins educacionais e uso em ambientes autor
 
 
 <p align="center"> Desenvolvido por <a href="https://www.google.com/search?q=https://github.com/joaovctn">João Santos</a> 💀 </p>  
+
