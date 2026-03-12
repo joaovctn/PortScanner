@@ -34,7 +34,7 @@ Desenvolvido com foco em **Stealth**, **Performance** e **Interoperabilidade** (
 ### Compilando (Windows / Linux / macOS)
 
 ```bash
-git clone https://github.com/SEU_USUARIO/PortScanner.git
+git clone https://github.com/joaovctn/PortScanner.git
 cd PortScanner
 dotnet build -c Release
 ```
@@ -131,3 +131,4 @@ O autor não se responsabiliza pelo uso indevido.
 <p align="center">
 Desenvolvido por <a href="https://github.com/joaovctn">João Santos</a> 💀
 </p>
+
